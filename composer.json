@@ -1,0 +1,43 @@
+{
+    "name": "afurgeri/laravel-api-keys",
+    "description": "Hashed API keys with a request guard, abilities, rotation and revocation for Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "illuminate/auth": "^13.0",
+        "illuminate/console": "^13.0",
+        "illuminate/database": "^13.0",
+        "illuminate/http": "^13.0",
+        "illuminate/routing": "^13.0",
+        "illuminate/support": "^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^11.0",
+        "pestphp/pest": "^4.7",
+        "pestphp/pest-plugin-laravel": "^4.1",
+        "mongodb/laravel-mongodb": "^5.11"
+    },
+    "autoload-dev": {
+        "psr-4": { "ApiKeysTests\\": "tests/" }
+    },
+    "scripts": { "test": "pest --compact" },
+    "config": { "allow-plugins": { "pestphp/pest-plugin": true } },
+    "suggest": {
+        "mongodb/laravel-mongodb": "Required for MongoDB storage (^5.11).",
+        "afurgeri/laravel-crud": "Required for the installable admin screens (^0.9.15).",
+        "afurgeri/laravel-rbac": "Required to assign RBAC roles to API keys and for the permission seeder (^0.6).",
+        "inertiajs/inertia-laravel": "Required for the installable Vue admin screens (^3.0)."
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ApiKeys\\": "src/",
+            "Modules\\ApiKeys\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["Modules\\ApiKeys\\ApiKeysServiceProvider"]
+        }
+    }
+}
